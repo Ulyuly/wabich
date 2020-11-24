@@ -1,0 +1,87 @@
+<!-- kamil tłuszczyński -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body 
+        {
+            font-family:helvetica;
+            display:flex;
+            flex-direction: column;
+            background-image: linear-gradient(to right, rgba(17, 4, 131, 0.473), rgb(9, 136, 26));
+        }
+
+        #content, #einstein
+        {
+            margin:auto;
+            padding: auto;
+        }
+
+        button
+        {
+            width: 180px;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+         -webkit-appearance: none;
+        margin: 0;
+        }
+
+        input[type=number] {
+        -moz-appearance: textfield;
+        width:180px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="einstein">
+        <img src="unnamed.png">
+    </div>
+    <br>
+    <br>
+    <div id="content">
+    <input type="number" id="liczba1" placeholder="Liczba #1" disabled/> +
+    <input type="number" id="liczba2" placeholder="Liczba #2" disabled/> = ?
+    <br><br>
+    <input type="number" id="result" placeholder="Odpowiedź">   
+    <button type="button" id="submit">Wylosuj liczby</button>
+
+    <script>
+        document.getElementById("submit").addEventListener("click", () => {
+                let submit = document.getElementById("submit");
+                submit.innerHTML = "Sprawdź odpowiedź";
+
+            let random1 = Math.floor(Math.random()*10)+1;
+            let random2 = Math.floor(Math.random()*10)+1;
+            document.getElementById("liczba1").value = random1;
+            document.getElementById("liczba2").value = random2;
+
+            document.getElementById("submit").addEventListener("click", () => {
+                let sum = document.getElementById("result").value;
+                if (sum == random1 + random2){
+                    result.style.backgroundColor = "lightgreen";
+                } else {
+                    result.style.backgroundColor = "red";
+                }
+                });
+                
+                document.getElementById("result").addEventListener("click", () => {
+                let sum = document.getElementById("result").value;
+                if(sum != random1 + random2){
+                result.style.backgroundColor ="white";
+                document.getElementById("result").value = '';
+                }
+            });
+
+
+        });
+
+    </script>
+    </div>
+</body>
+</html>
